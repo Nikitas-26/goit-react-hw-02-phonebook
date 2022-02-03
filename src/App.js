@@ -16,11 +16,18 @@ class App extends Component {
     number: '',
     filter: ''
   }
-  
+  filter = (query)=>{
+    return this.state.contacts.filter(item => item.name.toLowerCase().includes(query.toLowerCase()) && item )
+   }
+   removeName = (name) =>
+    this.setState((prev) => ({
+     contacts: prev.contacts.filter((el) => el.name !==name),
+    }));
 
   onInputValue = (e)=>{
     const {name,value} = e.target;
    this.setState({[name]: value})
+
   }
   onTelValue = (e)=>{
     const {name,value} = e.target;
@@ -38,6 +45,7 @@ class App extends Component {
       id: nanoid(),
       number: this.state.number
     }
+  
     this.addContact(newContact)
   }
   render() { 
@@ -48,7 +56,7 @@ class App extends Component {
      <h2>Contacts</h2>
      <FilterItems filter={this.state.filter} onInputValue={this.onInputValue}/>
     <ul>
-    <ContactsListItem contacts={this.state.contacts}filterItem={this.state.filter}/>
+    <ContactsListItem  filter={this.filter(this.state.filter)}removeName={this.removeName}/>
   </ul>
     </>
   }
