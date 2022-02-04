@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-const Form = ({onInputValue,onBtnSubmit,onTelValue}) => {
+const Form = ({onInputValue,onBtnSubmit}) => {
     return ( 
      <>
      <h2>Name</h2>
@@ -12,7 +12,7 @@ const Form = ({onInputValue,onBtnSubmit,onTelValue}) => {
         required
       />
       <h2>Number</h2>
-      <input onChange={onTelValue}
+      <input onChange={onInputValue}
   type="tel"
   name="number"
   pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -29,6 +29,6 @@ const Form = ({onInputValue,onBtnSubmit,onTelValue}) => {
 Form.propTypes={
   onInputValue:PropTypes.func.isRequired, 
   onBtnSubmit:PropTypes.func.isRequired, 
-  onTelValue:PropTypes.func.isRequired, 
+  // onTelValue:PropTypes.func.isRequired, 
 }
 export default Form;

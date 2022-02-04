@@ -28,10 +28,10 @@ class App extends Component {
     const { name, value } = e.target;
     this.setState({ [name]: value });
   };
-  onTelValue = (e) => {
-    const { name, value } = e.target;
-    this.setState({ [name]: value });
-  };
+  // onTelValue = (e) => {
+  //   const { name, value } = e.target;
+  //   this.setState({ [name]: value });
+  // };
   addContact = (contact) => {
     this.setState((prev) => ({ contacts: [...prev.contacts, contact] }));
   };
