@@ -5,6 +5,10 @@ const ContactsListItem = ({filter,removeName}) => {
 
 ContactsListItem.prototypes ={
     filter: PropTypes.string.isRequired,
-    removeName: PropTypes.arrayOf(PropTypes.string).isRequired
+    removeName: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name:PropTypes.string.isRequired,
+    contact: PropTypes.string.isRequired    
+    })).isRequired
 }
 export default ContactsListItem;
